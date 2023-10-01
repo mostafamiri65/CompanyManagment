@@ -1,0 +1,43 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@model AddRolesDto
+@{
+    Layout = null;
+}
+<form asp-area="Admin" asp-controller="Project" asp-action="AddRoles" method="post">
+    <input type="hidden" asp-for="ProjectId" value="@ViewBag.Id" />
+
+    <div class="row mb-2">
+
+        <div class="col-2"><label>عنوان نقش</label></div>
+        <div class="col-10">
+            <input asp-for="RoleTitle" class="form-control" maxlength="100"/>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="input-group">
+            <label>
+                <input type="checkbox" class="normal" asp-for="HasAccessForView">
+                دسترسی دیدن 
+            </label>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="input-group">
+            <label>
+                <input type="checkbox" class="normal" asp-for="HasAccessForEdit">
+                دسترسی ویرایش
+            </label>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="input-group">
+            <label>
+                <input type="checkbox" class="normal" asp-for="HasAccessForDelete">
+                دسترسی حذف
+            </label>
+        </div>
+    </div>
+    <div class="col-4 offset-4 d-grid gap-2">
+        <input type="submit" class="btn btn-success" value="ذخیره" />
+    </div>
+</form>

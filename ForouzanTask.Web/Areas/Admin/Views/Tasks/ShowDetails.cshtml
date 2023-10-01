@@ -1,0 +1,82 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@using ForouzanTask.Application.Extensions;
+@model TaskListDto
+@{
+    ViewData["Title"] = "جزییات فعالیت";
+}
+
+@section ToperLink{
+    <a href="/Admin/Tasks/Index">لیست فعالیت ها</a>
+}
+
+<div class="row col-12">
+    <div class="col-6">
+        <p> عنوان پروژه : @Model.Project.Title</p>
+    </div>
+    <div class="col-6">
+        <p >عنوان فعالیت : @Model.ProjectTask.TaskTitle</p>
+    </div>
+
+</div>
+<div class="col-12">
+    <p>شرح فعالیت درخواستی : @Model.ProjectTask.TaskDescription</p>
+</div>
+<div class="col-12 row bg-light">
+    <div class="col-2 d-grid  badge bg-primary text-wrap mb-2">
+        <a href="javascript:void(0);" onclick="AddTask('@Model.ProjectTask.Id')"
+           class="btn btn-warning round">
+            اضافه کردن نتیجه فعالیت
+        </a>
+    </div>
+    <div class="col-12 row">
+        @foreach(var item in Model.ProjectTaskDetails)
+        {
+            <div class="col-10">
+                <div class="col-12">@item.Desctiption</div>
+                <div class="col-4">
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Tasks"
+                       asp-action="DownloadFile" asp-route-documentName="@item.DocumentFileName">دانلود فایل</a>
+                </div>
+                <div class="col-8">توضیحات فایل : @item.FileDescription</div>
+            </div>
+            <div class="col-2">
+                @item.CreateDate.ToShamsi()
+            </div>
+
+        }
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="bodyModal">
+                ...
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Script{
+    <script>
+    
+        function AddTask(id) {
+            console.log(id);
+            $.ajax({
+                url: "/Admin/Tasks/AddTaskDetails",
+                type: "Get",
+                data: { id: id }
+            }).done(function (result) {
+                $('#roleModal').modal('show');
+                $('#roleModalLabel').html(' اضافه کردن شرح فعالیت ...');
+                $('#bodyModal').html(result);
+            });
+        }
+    </script>
+}

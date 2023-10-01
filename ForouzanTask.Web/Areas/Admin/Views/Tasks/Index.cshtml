@@ -1,0 +1,62 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@using ForouzanTask.Application.Extensions;
+@model IEnumerable<TaskListDto>
+@{
+    ViewData["Title"] = "لیست فعالیت ها";
+}
+@section CssForThis{
+    <link href="/assets/plugins/data-table/DataTables-1.10.16/css/jquery.dataTables.css" rel="stylesheet">
+}
+@section ToperLink{
+    <a href="#">فعالیت ها</a>
+}
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+
+            <div class="card-body">
+                <h6 class="card-title">جدول فعالیت ها</h6>
+                <p class="text-muted mb-3">
+                    لیست فعالیت های ارجاع شده به شرح ذیل است
+                </p>
+
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>عنوان پروژه</th>
+                                <th>عنوان فعالیت</th>
+                                <th>تاریخ ارجاع</th>
+                                <th>تاریخ مهلت برای انجام</th>
+                                <th>دستورات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Project.Title</td>
+                                    <td>@item.ProjectTask.TaskTitle</td>
+                                    <td>@item.ProjectTask.CreateDate.ToShamsi()</td>
+                                    <td>@item.ProjectTask.ExpireDate.ToShamsi()</td>
+                                    <td>
+<a class="btn btn-light" asp-area="Admin" asp-controller="Tasks" 
+asp-action="ShowDetails" asp-route-id="@item.ProjectTask.Id">مشاهده جزییات</a>
+                                    </td>
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section PluginForThis {
+    <script src="/assets/plugins/data-table/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/pages/datatable.js"></script>
+
+}

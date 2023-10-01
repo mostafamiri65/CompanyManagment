@@ -1,0 +1,18 @@
+﻿@model ForouzanTask.Application.DTOs.Project.Inner.AddNoteDto
+@{
+    Layout = null;
+}
+<form asp-area="Admin" asp-controller="Project" asp-action="AddNote" method="post">
+    <input type="hidden" asp-for="ProjectId" value="@ViewBag.Id" />
+
+    <div class="row mb-2">
+        <div class="col-2"><label>توضیحات</label></div>
+        <div class="col-10">
+<textarea asp-for="Description" class="form-control">
+</textarea>
+        </div>
+    </div>
+    <div class="col-4 offset-4 d-grid gap-2">
+        <input type="submit" class="btn btn-success" value="ذخیره" />
+    </div>
+</form>

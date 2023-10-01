@@ -1,0 +1,43 @@
+﻿@using ForouzanTask.Application.DTOs.Article;
+@model CreateSubArticleDto
+@{
+    ArticleDto article = ViewData["Article"] as ArticleDto;
+    Layout = null;
+}
+<form asp-area="Admin" asp-controller="ArticleAdmin" asp-action="AddSub"
+      enctype="multipart/form-data" method="post">
+    <input type="hidden" value="@article.Id" asp-for="ArticleId" />
+
+    <div class="col-12">
+        <label>متن پاراگراف</label>
+        <textarea asp-for="Content" class="form-control" required maxlength="5000"></textarea>
+    </div>
+    <div class="col-12 row">
+        <label>شماره پاراگراف</label>
+        <input asp-for="NumberOfParagraph" class="form-control" required value="@ViewBag.Num" />
+    </div>
+    <div class="col-12">
+        <label>تصویر</label>
+        <input type="file" class="form-control" name="pic" />
+
+    </div>
+    <div class="col-4 offset-4 d-grid gap-2">
+        <input type="submit" class="btn btn-success" value="ثبت" />
+    </div>
+</form>
+@section CssForThis {
+    <link href="~/assets/plugins/dropify/dist/dropify.min.css" rel="stylesheet" />
+
+}
+@section PluginForThis{
+    <script src="~/assets/plugins/dropify/dist/dropify.min.js"></script>
+
+}
+<script>
+    $(function () {
+        'use strict';
+
+        $('#Picture').dropify();
+
+    });
+</script>

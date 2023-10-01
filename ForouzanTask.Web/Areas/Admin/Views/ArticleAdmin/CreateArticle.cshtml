@@ -1,0 +1,125 @@
+﻿@using ForouzanTask.Application.DTOs.Article;
+@model CreateArticleDto
+@{
+    ViewData["Title"] = "مقاله جدید";
+    List<CategoryListDto>? categories = ViewData["Categories"] as List<CategoryListDto>;
+}
+@section ToperLink{
+    <a asp-area="Admin" asp-controller="ArticleAdmin" asp-action="Index">لیست مقاله ها</a>
+}
+
+<form enctype="multipart/form-data" asp-area="Admin" asp-controller="ArticleAdmin"
+asp-action="CreateArticle" method="post">
+    <div class="form-body">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>عنوان مقاله</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="icon-pencil"></i>
+                        </span>
+                        <input type="text" class="form-control" asp-for="Title" required maxlength="500"
+                               oninvalid="this.setCustomValidity('وارد کردن عنوان اجباری است')"
+                               oninput="this.setCustomValidity('')" onblur="ValidateTitle()" title="عنوان مقاله"
+                        placeholder="عنوان مقاله"/>
+                    </div><!-- /.input-group -->
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <label>دسته بندی مقاله</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="icon-grid"></i>
+                        </span>
+                        <select class="form-select" asp-for="CategoryId"
+                                required oninvalid="this.setCustomValidity('وارد کردن این بخش اجباری است')"
+                                oninput="this.setCustomValidity('')">
+                            <option value="">انتخاب کنید</option>
+                            @if (categories != null)
+                            {
+                                foreach (var item in categories)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+
+                        </select>
+                    </div><!-- /.input-group -->
+                </div><!-- /.form-group -->
+                <div class="form-group">
+                    <label>توضیحات تگ متا مقاله</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="icon-pencil"></i>
+                        </span>
+                        <textarea type="text" class="form-control" required oninvalid="this.setCustomValidity('وارد کردن این بخش اجباری است')"
+                                  oninput="this.setCustomValidity('')" onblur="ValidateTag()"
+                        asp-for="MetaDescription" placeholder="توضیحات تگ متا"></textarea>
+                    </div><!-- /.input-group -->
+                </div><!-- /.form-group -->
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>عکس اصلی مقاله</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="icon-picture"></i>
+                        </span>
+                        <input type="file" id="myDropify" class="form-control" asp-for="MainImage" required/>
+                    </div><!-- /.input-group -->
+                </div><!-- /.form-group -->
+            </div>
+            <div class="form-group">
+                <label>توضیحات مختصر </label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="icon-pencil"></i>
+                    </span>
+                  <textarea class="form-control" asp-for="ShortDescription"
+                              required oninvalid="this.setCustomValidity('وارد کردن این بخش اجباری است')"
+                              oninput="this.setCustomValidity('')"></textarea>
+                </div><!-- /.input-group -->
+            </div>
+            <div class="form-group">
+                <label>عکس اسلایدر مقاله (در صورتی که این مقاله در اسلایدر صفحه اصلی باشد این عکس الزامی است)</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="icon-picture"></i>
+                    </span>
+                    <input type="file" id="sliderDropify" class="form-control" asp-for="SliderPicture"  />
+                </div><!-- /.input-group -->
+            </div>
+        </div>
+    </div>
+    <div class="col-4 offset-4 gap-2 d-grid">
+        <input type="submit" class="btn btn-success" value="ثبت و ادامه" />
+    </div>
+</form>
+@section Validators{
+    <div class="alert-danger" id="alrt-Div">
+        <div class="row">
+            <div class="col-6">
+                <p id="p-Title">وارد کردن عنوان اجباری است</p>
+            </div>
+            <div class="col-6">
+                <p id="p-MetaTag">توضیحات تگ متا مقاله برای سئو می باشد. وارد کردن ااین قسمت الزامی است</p>
+            </div>
+
+
+        </div>
+    </div>
+}
+@section CssForThis {
+    <link href="~/assets/plugins/dropify/dist/dropify.min.css" rel="stylesheet" />
+
+}
+@section PluginForThis{
+    <script src="~/assets/plugins/dropify/dist/dropify.min.js"></script>
+
+}
+@section Script {
+    <script src="~/assets/js/pages/dropify.js"></script>
+    <script src="~/js/createarticle.js"></script>
+   
+}

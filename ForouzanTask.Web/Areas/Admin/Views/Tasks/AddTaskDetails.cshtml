@@ -1,0 +1,43 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@model AddTaskDetailsDto
+@{
+    Layout = null;
+    List<RequestedTitlesDto>? titles = ViewData["Titles"] as List<RequestedTitlesDto>;
+}
+<form asp-area="Admin" asp-controller="Tasks" asp-action="AddTaskDetails"
+method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="TaskId" value="@ViewBag.Id" />
+    <div class="col-12 mb-2">
+        <label>شرح فعالیت</label>
+        <textarea asp-for="Desctiption" class="form-control"></textarea>
+    </div>
+    <div class="col-12 mb-2">
+        <label>فایل</label>
+        <input type="file" asp-for="file" class="form-control" />
+    </div>
+    <div class="col-12 mb-2">
+        <label>شرح فایل </label>
+        <textarea class="form-control" asp-for="FileDescription"></textarea>
+    </div>
+    @if (titles != null)
+    {
+        
+   
+    <div class="col-12 row mb-2">
+        <label>مقادیری که برای فعالیت باید تکمیل شوند</label>
+        @foreach (var item in titles)
+        {
+            <div class="col-6">
+                    <input type="text" placeholder="@item.RequestedTitle" class="form-control"
+                    name="value" required
+                           oninvalid="this.setCustomValidity('وارد کردن این قسمت اجباری است')"
+                           oninput="this.setCustomValidity('')" />
+            </div>
+        }
+        </div>
+    }
+    <div class="col-4 offset-4 d-grid gap-2">
+        <input type="submit" value="ثبت" class="btn btn-success" />
+
+    </div>
+</form>

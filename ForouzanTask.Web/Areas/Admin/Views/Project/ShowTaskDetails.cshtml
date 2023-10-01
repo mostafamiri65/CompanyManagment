@@ -1,0 +1,42 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@model ProjectTaskDetailsForAdminDto
+@{
+    ViewData["Title"] = "جزییات فعالیت";
+}
+@section ToperLink{
+    <a asp-area="Admin" asp-controller="Project" asp-action="ShowDetails"
+       asp-route-id="@Model.Project.Id">@Model.Project.Title</a>
+}
+<div class="col-12 row mb-2">
+    <div class="col-6">
+        عنوان پروژه : @Model.Project.Title
+    </div>
+    <div class="col-6">
+        عنوان فعالیت : @Model.ProjectTask.TaskTitle
+    </div>
+</div>
+<div class="col-12 row bg-light mb-2 mt-1">
+    @foreach (var item in Model.ProjectTaskDetails)
+    {
+        <div class="col-8">@item.Desctiption</div>
+        @if (item.DocumentFileName != null)
+        {
+            <div class="col-1">
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="Tasks"
+                   asp-action="DownloadFile" asp-route-documentName="@item.DocumentFileName">دانلود فایل</a>
+            </div>
+            <div class="col-3">@item.FileDescription</div>
+        }
+
+    }
+</div>
+
+<div class="col-12 bg-ornge row">
+
+    @foreach (var item in Model.RequestedValues.OrderBy(d=>d.CreateDate).ToList())
+    {
+      <div class="col-4">
+        <p> @item.TbTaskRequested.RequestedTitle : @item.Value</p>
+        </div>
+    }
+</div>

@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="NobleUI">
+	<meta name="keywords"
+		content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<title>NobleUI - قالب HTML مدیریتی بوت استرپ 5</title>
+
+	<!-- core:css -->
+	<link rel="stylesheet" href="../../../assets/vendors/core/core.css">
+	<!-- endinject -->
+
+	<!-- Plugin css for this page -->
+	<link rel="stylesheet" href="../../../assets/vendors/prismjs/themes/prism.css">
+	<!-- End plugin css for this page -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="../../../assets/fonts/feather-font/css/iconfont.css">
+	<link rel="stylesheet" href="../../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+	<!-- endinject -->
+
+	<!-- Layout styles -->
+	<link rel="stylesheet" href="../../../assets/css/demo4/style-rtl.min.css">
+	<!-- End layout styles -->
+
+	<link rel="shortcut icon" href="../../../assets/images/favicon.png" />
+</head>
+
+<body>
+	<div class="main-wrapper">
+
+		<!-- partial:../../partials/_navbar.html -->
+		<div class="horizontal-menu">
+			<nav class="navbar top-navbar">
+				<div class="container">
+					<div class="navbar-content">
+						<a href="#" class="navbar-brand">
+							Noble<span>UI</span>
+						</a>
+						<form class="search-form">
+							<div class="input-group">
+								<div class="input-group-text">
+									<i data-feather="search"></i>
+								</div>
+								<input type="text" class="form-control" id="navbarForm" placeholder="جستجو ...">
+							</div>
+						</form>
+						<ul class="navbar-nav">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i class="flag-icon flag-icon-ir mt-1" title="فارسی"></i> <span
+										class="ms-1 me-1 d-none d-md-inline-block">فارسی</span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="languageDropdown">
+									<a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-ir"
+											title="ir" id="us"></i> <span class="ms-1"> فارسی </span></a>
+									<a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-fr"
+											title="us" id="fr"></i> <span class="ms-1"> انگلیسی </span></a>
+									<a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-de"
+											title="de" id="de"></i> <span class="ms-1"> آلمانی </span></a>
+									<a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-pt"
+											title="pt" id="pt"></i> <span class="ms-1"> ترکی استانبولی </span></a>
+									<a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-es"
+											title="es" id="es"></i> <span class="ms-1"> اسپانیایی </span></a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
+									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i data-feather="grid"></i>
+								</a>
+								<div class="dropdown-menu p-0" aria-labelledby="appsDropdown">
+									<div
+										class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+										<p class="mb-0 fw-bold">برنامه های وب</p>
+										<a href="javascript:;" class="text-muted">ویرایش</a>
+									</div>
+									<div class="row g-0 p-1">
+										<div class="col-3 text-center">
+											<a href="../apps/chat.html"
+												class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
+													data-feather="message-square" class="icon-lg mb-1"></i>
+												<p class="tx-12">گفتگو</p>
+											</a>
+										</div>
+										<div class="col-3 text-center">
+											<a href="../apps/calendar.html"
+												class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
+													data-feather="calendar" class="icon-lg mb-1"></i>
+												<p class="tx-12">تقویم رویداد</p>
+											</a>
+										</div>
+										<div class="col-3 text-center">
+											<a href="../email/inbox.html"
+												class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
+													data-feather="mail" class="icon-lg mb-1"></i>
+												<p class="tx-12">ایمیل</p>
+											</a>
+										</div>
+										<div class="col-3 text-center">
+											<a href="../general/profile.html"
+												class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
+													data-feather="instagram" class="icon-lg mb-1"></i>
+												<p class="tx-12">پروفایل</p>
+											</a>
+										</div>
+									</div>
+									<div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+										<a href="javascript:;">مشاهده همه</a>
+									</div>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i data-feather="mail"></i>
+								</a>
+								<div class="dropdown-menu p-0" aria-labelledby="messageDropdown">
+									<div
+										class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+										<p>9 پیغام جدید</p>
+										<a href="javascript:;" class="text-muted">پاک کردن همه</a>
+									</div>
+									<div class="p-1">
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div class="me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face2.jpg" alt="userr">
+											</div>
+											<div class="d-flex justify-content-between flex-grow-1">
+												<div class="me-4">
+													<p>رضا افشار</p>
+													<p class="tx-12 text-muted">وضعیت پروژه</p>
+												</div>
+												<p class="tx-12 text-muted">2 دقیقه پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div class="me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face3.jpg" alt="userr">
+											</div>
+											<div class="d-flex justify-content-between flex-grow-1">
+												<div class="me-4">
+													<p>پریسا توکلی</p>
+													<p class="tx-12 text-muted">جلسه با مشتری</p>
+												</div>
+												<p class="tx-12 text-muted">30 دقیقه پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div class="me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face4.jpg" alt="userr">
+											</div>
+											<div class="d-flex justify-content-between flex-grow-1">
+												<div class="me-4">
+													<p>پدرام شریفی</p>
+													<p class="tx-12 text-muted">به روز رسانی پروژه</p>
+												</div>
+												<p class="tx-12 text-muted">1 ساعت پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div class="me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face5.jpg" alt="userr">
+											</div>
+											<div class="d-flex justify-content-between flex-grow-1">
+												<div class="me-4">
+													<p>آرزو محبی</p>
+													<p class="tx-12 text-muted">پایان پروژه</p>
+												</div>
+												<p class="tx-12 text-muted">2 ساعت پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div class="me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face6.jpg" alt="userr">
+											</div>
+											<div class="d-flex justify-content-between flex-grow-1">
+												<div class="me-4">
+													<p>نرگس علیپور</p>
+													<p class="tx-12 text-muted">رکورد جدید</p>
+												</div>
+												<p class="tx-12 text-muted">5 ساعت پیش</p>
+											</div>
+										</a>
+									</div>
+									<div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+										<a href="javascript:;">مشاهده همه</a>
+									</div>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button"
+									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i data-feather="bell"></i>
+									<div class="indicator">
+										<div class="circle"></div>
+									</div>
+								</a>
+								<div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
+									<div
+										class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+										<p>6 اعلان جدید</p>
+										<a href="javascript:;" class="text-muted">پاک کردن همه</a>
+									</div>
+									<div class="p-1">
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div
+												class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+												<i class="icon-sm text-white" data-feather="gift"></i>
+											</div>
+											<div class="flex-grow-1 me-2">
+												<p>سفارش جدید دریافت شد</p>
+												<p class="tx-12 text-muted">30 دقیقه پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div
+												class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+												<i class="icon-sm text-white" data-feather="alert-circle"></i>
+											</div>
+											<div class="flex-grow-1 me-2">
+												<p>محدودیت سرور!</p>
+												<p class="tx-12 text-muted">1 ساعت پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div
+												class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+												<img class="wd-30 ht-30 rounded-circle"
+													src="../../../assets/images/faces/face6.jpg" alt="userr">
+											</div>
+											<div class="flex-grow-1 me-2">
+												<p>کاربر جدید ثبت نام کرد</p>
+												<p class="tx-12 text-muted">2 ثانیه پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div
+												class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+												<i class="icon-sm text-white" data-feather="layers"></i>
+											</div>
+											<div class="flex-grow-1 me-2">
+												<p>برنامه ها نیاز به به روز رسانی دارند</p>
+												<p class="tx-12 text-muted">5 ساعت پیش</p>
+											</div>
+										</a>
+										<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+											<div
+												class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+												<i class="icon-sm text-white" data-feather="download"></i>
+											</div>
+											<div class="flex-grow-1 me-2">
+												<p>دانلود تکمیل شد</p>
+												<p class="tx-12 text-muted">6 ساعت پیش</p>
+											</div>
+										</a>
+									</div>
+									<div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+										<a href="javascript:;">مشاهده همه</a>
+									</div>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<img class="wd-30 ht-30 rounded-circle" src="../../../assets/images/faces/face1.jpg"
+										alt="profile">
+								</a>
+								<div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+									<div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+										<div class="mb-3">
+											<img class="wd-80 ht-80 rounded-circle"
+												src="../../../assets/images/faces/face1.jpg" alt="">
+										</div>
+										<div class="text-center">
+											<p class="tx-16 fw-bolder">آرزو محبی</p>
+											<p class="tx-12 text-muted">arezomohebi@gmail.com</p>
+										</div>
+									</div>
+									<ul class="list-unstyled p-1">
+										<li class="dropdown-item py-2">
+											<a href="../general/profile.html" class="text-body ms-0">
+												<i class="me-2 icon-md" data-feather="user"></i>
+												<span>پروفایل</span>
+											</a>
+										</li>
+										<li class="dropdown-item py-2">
+											<a href="javascript:;" class="text-body ms-0">
+												<i class="me-2 icon-md" data-feather="edit"></i>
+												<span>ویرایش پروفایل</span>
+											</a>
+										</li>
+										<li class="dropdown-item py-2">
+											<a href="javascript:;" class="text-body ms-0">
+												<i class="me-2 icon-md" data-feather="repeat"></i>
+												<span>تغییر کاربر</span>
+											</a>
+										</li>
+										<li class="dropdown-item py-2">
+											<a href="javascript:;" class="text-body ms-0">
+												<i class="me-2 icon-md" data-feather="log-out"></i>
+												<span>خروج</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+							data-toggle="horizontal-menu-toggle">
+							<i data-feather="menu"></i>
+						</button>
+					</div>
+				</div>
+			</nav>
+			<nav class="bottom-navbar">
+				<div class="container">
+					<ul class="nav page-navigation">
+						<li class="nav-item">
+							<a class="nav-link" href="../../dashboard.html">
+								<i class="link-icon" data-feather="box"></i>
+								<span class="menu-title">داشبورد</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="mail"></i>
+								<span class="menu-title">برنامه ها</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<ul class="submenu-item">
+									<li class="category-heading">ایمیل</li>
+									<li class="nav-item"><a class="nav-link" href="../email/inbox.html">صندوق دریافت</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="../email/read.html">خواندن ایمیل</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="../email/compose.html">ارسال
+											ایمیل</a></li>
+									<li class="category-heading">دیگر</li>
+									<li class="nav-item"><a class="nav-link" href="../apps/chat.html">گفتگو</a></li>
+									<li class="nav-item"><a class="nav-link" href="../apps/calendar.html">تقویم رویداد
+											میلادی</a></li>
+									<li class="nav-item"><a class="nav-link" href="../apps/calendar-jalali.html">تقویم
+											رویداد
+											شمسی</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item mega-menu">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="feather"></i>
+								<span class="menu-title">عناصر UI</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<div class="col-group-wrapper row">
+									<div class="col-group col-md-9">
+										<div class="row">
+											<div class="col-12">
+												<p class="category-heading">پایه</p>
+												<div class="submenu-item">
+													<div class="row">
+														<div class="col-md-4">
+															<ul>
+																<li class="nav-item"><a class="nav-link"
+																		href="accordion.html">آکاردئون</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="alerts.html">هشدار ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="badges.html">نشان ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="breadcrumbs.html">مسیر راهنما</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="buttons.html">دکمه ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="button-group.html">دکمه گروهی</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="cards.html">کارت ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="carousel.html">اسلاید تصاویر</a></li>
+															</ul>
+														</div>
+														<div class="col-md-4">
+															<ul>
+																<li class="nav-item"><a class="nav-link"
+																		href="collapse.html">کامپوننت Collapse</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="dropdowns.html">فهرست کشویی</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="list-group.html">لیست گروهی</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="media-object.html">اشیاء رسانه ای</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="modal.html">مُدال</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="navs.html">نَو ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="navbar.html">نوبار</a></li>
+															</ul>
+														</div>
+														<div class="col-md-4">
+															<ul>
+																<li class="nav-item"><a class="nav-link"
+																		href="pagination.html">صفحه بندی</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="popover.html">پاپ آور</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="progress.html">نوار پیشرفت</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="scrollbar.html">اسکرول بار</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="scrollspy.html">پیمایش صفحه Scrollspy</a>
+																</li>
+																<li class="nav-item"><a class="nav-link"
+																		href="spinners.html">اسپینر</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="tabs.html">تب ها</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="tooltips.html">تولتیپ</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-group col-md-3">
+										<div class="row">
+											<div class="col-12">
+												<p class="category-heading">پیشرفته</p>
+												<div class="submenu-item">
+													<div class="row">
+														<div class="col-md-12">
+															<ul>
+																<li class="nav-item"><a class="nav-link"
+																		href="../advanced-ui/cropper.html">برش عکس</a>
+																</li>
+																<li class="nav-item"><a class="nav-link"
+																		href="../advanced-ui/owl-carousel.html">اسلاید
+																		تصاویر (کاروسل)</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="../advanced-ui/sortablejs.html">قابلیت
+																		مرتب سازی</a>
+																</li>
+																<li class="nav-item"><a class="nav-link"
+																		href="../advanced-ui/sweet-alert.html">هشدار
+																		شیرین</a></li>
+																<li class="nav-item"><a class="nav-link"
+																		href="../advanced-ui/to-do.html">لیست انجام کار</a></li>		
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="inbox"></i>
+								<span class="menu-title">فرم ها</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<ul class="submenu-item">
+									<li class="nav-item"><a class="nav-link" href="../forms/basic-elements.html">عناصر
+											پایه</a></li>
+									<li class="nav-item"><a class="nav-link"
+											href="../forms/advanced-elements.html">عناصر پیشرفته</a></li>
+									<li class="nav-item"><a class="nav-link" href="../forms/editors.html">ویرایشگر
+											ها</a></li>
+									<li class="nav-item"><a class="nav-link" href="../forms/wizard.html">فرم حرفه ای
+											(مرحله ای)</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="pie-chart"></i>
+								<span class="menu-title">نمودار و جدول</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<div class="row">
+									<div class="col-md-6">
+										<ul class="submenu-item pe-md-0">
+											<li class="category-heading">نمودار ها</li>
+											<li class="nav-item"><a class="nav-link" href="../charts/apex.html">نمودار
+													Apex</a></li>
+											<li class="nav-item"><a class="nav-link"
+													href="../charts/chartjs.html">نمودار ChartJs</a></li>
+											<li class="nav-item"><a class="nav-link" href="../charts/flot.html">نمودار
+													Float</a></li>
+											<li class="nav-item"><a class="nav-link"
+													href="../charts/morrisjs.html">نمودار Morris</a></li>
+											<li class="nav-item"><a class="nav-link" href="../charts/peity.html">نمودار
+													Peity</a></li>
+											<li class="nav-item"><a class="nav-link"
+													href="../charts/sparkline.html">نمودار Sparkline</a></li>
+										</ul>
+									</div>
+									<div class="col-md-6">
+										<ul class="submenu-item ps-md-0">
+											<li class="category-heading">جداول</li>
+											<li class="nav-item"><a class="nav-link"
+													href="../tables/basic-table.html">جداول پایه</a></li>
+											<li class="nav-item"><a class="nav-link"
+													href="../tables/data-table.html">جدول داده</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="smile"></i>
+								<span class="menu-title">آیکون ها</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<ul class="submenu-item">
+									<li class="nav-item"><a class="nav-link" href="../icons/feather-icons.html">آیکون
+											های Feather</a></li>
+									<li class="nav-item"><a class="nav-link" href="../icons/flag-icons.html">آیکون های
+											پرچم</a></li>
+									<li class="nav-item"><a class="nav-link" href="../icons/mdi-icons.html">آیکون های
+											Mdi</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item mega-menu">
+							<a href="#" class="nav-link">
+								<i class="link-icon" data-feather="book"></i>
+								<span class="menu-title">صفحات</span>
+								<i class="link-arrow"></i>
+							</a>
+							<div class="submenu">
+								<div class="col-group-wrapper row">
+									<div class="col-group col-md-6">
+										<p class="category-heading">صفحات ویژه</p>
+										<div class="submenu-item">
+											<div class="row">
+												<div class="col-md-6">
+													<ul>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/blank-page.html">صفحه خالی</a></li>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/faq.html">سوالات متداول</a></li>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/invoice.html">فاکتور</a></li>
+													</ul>
+												</div>
+												<div class="col-md-6">
+													<ul>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/profile.html">پروفایل</a></li>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/pricing.html">پلن فروش</a></li>
+														<li class="nav-item"><a class="nav-link"
+																href="../general/timeline.html">تایم لاین</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-group col-md-3">
+										<p class="category-heading">صفحات احراز هویت</p>
+										<ul class="submenu-item">
+											<li class="nav-item"><a class="nav-link" href="../auth/login.html">ورود</a>
+											</li>
+											<li class="nav-item"><a class="nav-link" href="../auth/register.html">ثبت
+													نام</a></li>
+										</ul>
+									</div>
+									<div class="col-group col-md-3">
+										<p class="category-heading">صفحات خطا</p>
+										<ul class="submenu-item">
+											<li class="nav-item"><a class="nav-link" href="../error/404.html">404</a>
+											</li>
+											<li class="nav-item"><a class="nav-link" href="../error/500.html">500</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<!-- partial -->
+
+		<div class="page-wrapper">
+
+			<div class="page-content">
+				<div class="row">
+					<div class="col-xl-10 main-content ps-xl-4 pe-xl-5">
+						<h1 class="page-title">دکمه ها</h1>
+						<p class="lead">از سبک‌های دکمه سفارشی بوت استرپ برای اعمال در فرم‌ها، دیالوگ‌ها و موارد دیگر با
+							پشتیبانی از چندین اندازه، حالت و موارد دیگر استفاده کنید. برای لیست کامل دستورالعمل ها و
+							گزینه های دیگر <a href="https://getbootstrap.com/docs/5.1/components/buttons/"
+								target="_blank">مستندات رسمی بوت استرپ</a> را بخوانید.</p>
+
+						<hr>
+
+						<h4 id="default">مثال پایه</h4>
+						<p class="mb-3">بوت استرپ شامل چندین سبک دکمه از پیش تعریف شده است، که هر کدام هدف معنایی خود را
+							انجام می دهند، و برای کنترل بیشتر، چند مورد اضافی به کار رفته است.</p>
+						<div class="example">
+							<button type="button" class="btn btn-primary mb-1 mb-md-0">اولیه</button>
+							<button type="button" class="btn btn-secondary mb-1 mb-md-0">ثانویه</button>
+							<button type="button" class="btn btn-success mb-1 mb-md-0">موفق</button>
+							<button type="button" class="btn btn-danger mb-1 mb-md-0">خطر</button>
+							<button type="button" class="btn btn-warning mb-1 mb-md-0">هشدار</button>
+							<button type="button" class="btn btn-info mb-1 mb-md-0">اطلاع</button>
+							<button type="button" class="btn btn-light mb-1 mb-md-0">روشن</button>
+							<button type="button" class="btn btn-dark mb-1 mb-md-0">تیره</button>
+							<button type="button" class="btn btn-link mb-1 mb-md-0">لینک</button>
+						</div>
+						<figure class="highlight" id="defaultButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-primary">اولیه</button>
+<button type="button" class="btn btn-secondary">ثانویه</button>
+<button type="button" class="btn btn-success">موفق</button>
+<button type="button" class="btn btn-danger">خطر</button>
+<button type="button" class="btn btn-warning">هشدار</button>
+<button type="button" class="btn btn-info">اطلاع</button>
+<button type="button" class="btn btn-light">روشن</button>
+<button type="button" class="btn btn-dark">تیره</button>
+
+<button type="button" class="btn btn-link">لینک</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#defaultButton">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="inverse">دکمه های معکوس</h4>
+						<p class="mb-3">دکمه های معکوس.</p>
+						<div class="example">
+							<button type="button" class="btn btn-inverse-primary mb-1 mb-md-0">اولیه</button>
+							<button type="button" class="btn btn-inverse-secondary mb-1 mb-md-0">ثانویه</button>
+							<button type="button" class="btn btn-inverse-success mb-1 mb-md-0">موفق</button>
+							<button type="button" class="btn btn-inverse-danger mb-1 mb-md-0">خطر</button>
+							<button type="button" class="btn btn-inverse-warning mb-1 mb-md-0">هشدار</button>
+							<button type="button" class="btn btn-inverse-info mb-1 mb-md-0">اطلاع</button>
+							<button type="button" class="btn btn-inverse-light mb-1 mb-md-0">روشن</button>
+							<button type="button" class="btn btn-inverse-dark mb-1 mb-md-0">تیره</button>
+						</div>
+						<figure class="highlight" id="inverseButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-inverse-primary">اولیه</button>
+<button type="button" class="btn btn-inverse-secondary">ثانویه</button>
+<button type="button" class="btn btn-inverse-success">موفق</button>
+<button type="button" class="btn btn-inverse-danger">خطر</button>
+<button type="button" class="btn btn-inverse-warning">هشدار</button>
+<button type="button" class="btn btn-inverse-info">اطلاع</button>
+<button type="button" class="btn btn-inverse-light">روشن</button>
+<button type="button" class="btn btn-inverse-dark">تیره</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#inverseButton">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="tags">برچسب های دکمه</h4>
+						<p class="mb-3">کلاس‌های <code>.btn</code> برای استفاده با عنصر <code>&lt;button&gt;</code>
+							طراحی شده‌اند. با این حال، می‌توانید از این کلاس‌ها در عناصر <code>&lt;a&gt;</code> یا
+							<code>&lt;input&gt;</code> استفاده کنید (اگرچه ممکن است برخی مرورگرها رندر کمی متفاوت اعمال
+							کنند).</p>
+						<div class="example">
+							<a class="btn btn-primary mb-1 mb-md-0" href="javascript:;" role="button">لینک</a>
+							<button class="btn btn-primary mb-1 mb-md-0" type="submit">دکمه</button>
+							<input class="btn btn-primary mb-1 mb-md-0" type="button" value="ورودی">
+							<input class="btn btn-primary mb-1 mb-md-0" type="submit" value="ارسال">
+							<input class="btn btn-primary mb-1 mb-md-0" type="reset" value="بازنشانی">
+						</div>
+						<figure class="highlight" id="tagsButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><a class="btn btn-primary" href="#" role="button">لینک</a>
+<button class="btn btn-primary" type="submit">دکمه</button>
+<input class="btn btn-primary" type="button" value="ورودی">
+<input class="btn btn-primary" type="submit" value="ارسال">
+<input class="btn btn-primary" type="reset" value="بازنشانی"></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#tagsButton">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="outline">دکمه های اوت لاین</h4>
+						<p class="mb-3">آیا به یک دکمه نیاز دارید، اما نه به رنگ های پس زمینه سنگینی که می آورند؟
+							کلاس‌های اصلاح‌کننده پیش‌فرض را با کلاس‌های <code>.btn-outline-*</code> جایگزین کنید تا همه
+							تصاویر پس‌زمینه و رنگ‌های روی هر دکمه حذف شوند.</p>
+						<div class="example">
+							<button type="button" class="btn btn-outline-primary mb-1 mb-md-0">اولیه</button>
+							<button type="button" class="btn btn-outline-secondary mb-1 mb-md-0">ثانویه</button>
+							<button type="button" class="btn btn-outline-success mb-1 mb-md-0">موفق</button>
+							<button type="button" class="btn btn-outline-danger mb-1 mb-md-0">خطر</button>
+							<button type="button" class="btn btn-outline-warning mb-1 mb-md-0">هشدار</button>
+							<button type="button" class="btn btn-outline-info mb-1 mb-md-0">اطلاع</button>
+							<button type="button" class="btn btn-outline-light mb-1 mb-md-0">روشن</button>
+							<button type="button" class="btn btn-outline-dark mb-1 mb-md-0">تیره</button>
+						</div>
+						<figure class="highlight" id="outlineButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-outline-primary">اولیه</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#outlineButton">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="sizes">سایز ها</h4>
+						<p class="mb-3">دکمه های بزرگتر یا کوچکتر را دوست دارید؟ برای اندازه های بیشتر،
+							<code>.btn-lg</code>، <code>.btn-sm</code> یا <code>.btn-xs</code> را اضافه کنید.</p>
+						<div class="example">
+							<button type="button" class="btn btn-primary btn-lg me-1 mb-1 mb-md-0">دکمه بزرگ</button>
+							<button type="button" class="btn btn-primary me-1 mb-1 mb-md-0">دکمه پیش فرض</button>
+							<button type="button" class="btn btn-primary btn-sm me-1 mb-1 mb-md-0">دکمه کوچک</button>
+							<button type="button" class="btn btn-primary btn-xs mb-1 mb-md-0">خیلی کوچک</button>
+						</div>
+						<figure class="highlight" id="buttonSizes">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-primary btn-lg">دکمه بزرگ</button>
+<button type="button" class="btn btn-primary btn-sm">دکمه کوچک</button>
+<button type="button" class="btn btn-primary">دکمه پیش فرض</button>
+<button type="button" class="btn btn-primary btn-xs">خیلی کوچک</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#buttonSizes">کپی</button>
+						</figure>
+						<p class="mb-3">دکمه‌های سطح بلوک را ایجاد کنید - دکمه‌هایی که تمام عرض یک والد را پوشش می‌دهند.
+						</p>
+						<div class="example">
+							<div class="d-grid gap-2">
+								<button type="button" class="btn btn-primary">دکمه تمام عرض</button>
+								<button type="button" class="btn btn-secondary">دکمه تمام عرض</button>
+							</div>
+						</div>
+						<figure class="highlight" id="defaultBreadcrumbs">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><div class="d-grid gap-2">
+  <button type="button" class="btn btn-primary">دکمه تمام عرض</button>
+  <button type="button" class="btn btn-secondary">دکمه تمام عرض</button>
+</div></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#defaultBreadcrumbs">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="active">وضعیت فعال</h4>
+						<p class="mb-3">هنگامی که فعال باشد، دکمه‌ها فشار داده شده (با پس‌زمینه تیره‌تر، حاشیه تیره‌تر،
+							و سایه داخلی) ظاهر می‌شوند. <strong>نیازی به افزودن کلاس به <code>&lt;button&gt;</code>ها
+								نیست زیرا از کلاس شبه استفاده می کنند</strong>. با این حال، همچنان می‌توانید همان ظاهر
+							فعال را با <code>.active</code> اجباری کنید (و ویژگی <code>aria-pressed="true"</code> را در
+							آن لحاظ کنید) در صورتی که نیاز به تکرار وضعیت به صورت برنامه‌نویسی داشته باشید.</p>
+						<div class="example">
+							<a href="javascript:;" class="btn btn-primary active" role="button" aria-pressed="true">لینک
+								اولیه</a>
+							<a href="javascript:;" class="btn btn-secondary active" role="button"
+								aria-pressed="true">لینک</a>
+						</div>
+						<figure class="highlight" id="activeButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><a href="#" class="btn btn-primary active" role="button" aria-pressed="true">لینک اولیه</a>
+<a href="#" class="btn btn-secondary active" role="button" aria-pressed="true">لینک</a></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#activeButton">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="disabled">وضعیت غیرفعال</h4>
+						<p class="mb-3">با افزودن ویژگی بولی <code>disabled</code> به هر عنصر
+							<code>&lt;button&gt;</code>، دکمه‌ها
+							را غیرفعال کنید.</p>
+						<div class="example">
+							<button type="button" class="btn btn-primary" disabled>دکمه اولیه</button>
+							<button type="button" class="btn btn-secondary" disabled>دکمه</button>
+						</div>
+						<figure class="highlight" id="disabledButton">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-primary" disabled>دکمه اولیه</button>
+<button type="button" class="btn btn-secondary" disabled>دکمه</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#disabledButton">کپی</button>
+						</figure>
+						<p class="mb-3">دکمه های غیرفعال شده با استفاده از عنصر <code>&lt;a&gt;</code> کمی متفاوت عمل می
+							کنند. <code>&lt;a&gt;</code>ها از ویژگی <code>disabled</code> پشتیبانی نمی‌کنند، بنابراین
+							باید کلاس <code>.disabled</code> را اضافه کنید تا از نظر بصری غیرفعال به نظر برسد.</p>
+						<div class="example">
+							<a href="#" class="btn btn-primary disabled" tabindex="-1" role="button"
+								aria-disabled="true">لینک اولیه</a>
+							<a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button"
+								aria-disabled="true">لینک</a>
+						</div>
+						<figure class="highlight" id="defaultButton2">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">لینک اولیه</a>
+<a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">لینک</a></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#defaultButton2">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="with-icon">دکمه های آیکون</h4>
+						<p class="mb-3">برای دکمه‌هایی که فقط نماد دارند، کلاس <code>.btn-icon</code> را اضافه کنید.</p>
+						<div class="example">
+							<button type="button" class="btn btn-primary btn-icon">
+								<i data-feather="check-square"></i>
+							</button>
+							<button type="button" class="btn btn-danger btn-icon">
+								<i data-feather="box"></i>
+							</button>
+						</div>
+						<figure class="highlight" id="withIcon">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-primary btn-icon">
+	<i data-feather="check-square"></i>
+</button>
+<button type="button" class="btn btn-danger btn-icon">
+	<i data-feather="box"></i>
+</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#withIcon">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="with-icon-text">دکمه با آیکون و متن</h4>
+						<p class="mb-3">>نماد و متن را داخل <code>.btn-icon-text</code> قرار دهید و از
+							<code>.btn-icon-prepend</code> یا <code>.btn-icon-append</code> برای تگ‌های نماد استفاده
+							کنید.</p>
+						<div class="example">
+							<button type="button" class="btn btn-primary btn-icon-text mb-1 mb-md-0">
+								<i class="btn-icon-prepend" data-feather="check-square"></i>
+								دکمه با آیکون و متن
+							</button>
+							<button type="button" class="btn btn-primary btn-icon-text mb-1 mb-md-0">
+								دکمه با آیکون و متن
+								<i class="btn-icon-append" data-feather="box"></i>
+							</button>
+						</div>
+						<figure class="highlight" id="withIconText">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-primary btn-icon-text">
+	<i class="btn-icon-prepend" data-feather="check-square"></i>
+	دکمه با آیکون و متن
+</button>
+<button type="button" class="btn btn-primary btn-icon-text">
+	دکمه با آیکون و متن
+	<i class="btn-icon-append" data-feather="box"></i>
+</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#withIconText">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="social-icon">دکمه های آیکون شبکه اجتماعی</h4>
+						<div class="example">
+							<button type="button" class="btn btn-icon btn-facebook mb-1 mb-md-0">
+								<i data-feather="facebook"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-instagram mb-1 mb-md-0">
+								<i data-feather="instagram"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-twitter mb-1 mb-md-0">
+								<i data-feather="twitter"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-youtube mb-1 mb-md-0">
+								<i data-feather="youtube"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-github mb-1 mb-md-0">
+								<i data-feather="github"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-linkedin mb-1 mb-md-0">
+								<i data-feather="linkedin"></i>
+							</button>
+							<button type="button" class="btn btn-icon btn-outline-twitter mb-1 mb-md-0">
+								<i data-feather="twitter"></i>
+							</button>
+						</div>
+						<figure class="highlight" id="socialIcon">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-icon btn-facebook">
+  <i data-feather="facebook"></i>
+</button>
+<button type="button" class="btn btn-icon btn-instagram">
+  <i data-feather="instagram"></i>
+</button>
+<button type="button" class="btn btn-icon btn-twitter">
+  <i data-feather="twitter"></i>
+</button>
+<button type="button" class="btn btn-icon btn-youtube">
+  <i data-feather="youtube"></i>
+</button>
+<button type="button" class="btn btn-icon btn-github">
+  <i data-feather="github"></i>
+</button>
+<button type="button" class="btn btn-icon btn-linkedin">
+  <i data-feather="linkedin"></i>
+</button>
+<button type="button" class="btn btn-icon btn-outline-twitter">
+	<i data-feather="twitter"></i>
+</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#socialIcon">کپی</button>
+						</figure>
+
+						<hr>
+
+						<h4 id="social-icon-text">دکمه های شبکه اجتماعی به همراه آیکون و متن</h4>
+						<div class="example">
+							<button type="button" class="btn btn-icon-text btn-facebook mb-1">
+								<i class="btn-icon-prepend" data-feather="facebook"></i>
+								فیسبوک
+							</button>
+							<button type="button" class="btn btn-icon-text btn-instagram mb-1">
+								<i class="btn-icon-prepend" data-feather="instagram"></i>
+								اینستاگرام
+							</button>
+							<button type="button" class="btn btn-icon-text btn-twitter mb-1">
+								<i class="btn-icon-prepend" data-feather="twitter"></i>
+								توییتر
+							</button>
+							<button type="button" class="btn btn-icon-text btn-youtube mb-1">
+								<i class="btn-icon-prepend" data-feather="youtube"></i>
+								یوتیوب
+							</button>
+							<button type="button" class="btn btn-icon-text btn-github mb-1">
+								<i class="btn-icon-prepend" data-feather="github"></i>
+								گیت هاب
+							</button>
+							<button type="button" class="btn btn-icon-text btn-linkedin mb-1">
+								<i class="btn-icon-prepend" data-feather="linkedin"></i>
+								لینکدین
+							</button>
+							<button type="button" class="btn btn-icon-text btn-outline-twitter mb-1">
+								<i class="btn-icon-prepend" data-feather="twitter"></i>
+								توییتر
+							</button>
+						</div>
+						<figure class="highlight" id="socialIconText">
+							<pre><code class="language-markup"><script type="script/prism-html-markup"><button type="button" class="btn btn-icon-text btn-facebook">
+  <i class="btn-icon-prepend" data-feather="facebook"></i>
+  فیسبوک
+</button>
+<button type="button" class="btn btn-icon-text btn-instagram">
+  <i class="btn-icon-prepend" data-feather="instagram"></i>
+  اینستاگرام
+</button>
+<button type="button" class="btn btn-icon-text btn-twitter">
+  <i class="btn-icon-prepend" data-feather="twitter"></i>
+  توییتر
+</button>
+<button type="button" class="btn btn-icon-text btn-youtube">
+  <i class="btn-icon-prepend" data-feather="youtube"></i>
+  یوتیوب
+</button>
+<button type="button" class="btn btn-icon-text btn-github">
+  <i class="btn-icon-prepend" data-feather="github"></i>
+  گیت هاب
+</button>
+<button type="button" class="btn btn-icon-text btn-linkedin">
+  <i class="btn-icon-prepend" data-feather="linkedin"></i>
+  لینکدین
+</button>
+<button type="button" class="btn btn-icon-text btn-outline-twitter">
+	<i class="btn-icon-prepend" data-feather="twitter"></i>
+	توییتر
+</button></script></code></pre>
+							<button type="button" class="btn btn-clipboard"
+								data-clipboard-target="#socialIconText">کپی</button>
+						</figure>
+
+					</div>
+					<div class="col-xl-2 content-nav-wrapper">
+						<ul class="nav content-nav d-flex flex-column">
+							<li class="nav-item">
+								<a href="#default" class="nav-link">مثال پایه</a>
+							</li>
+							<li class="nav-item">
+								<a href="#inverse" class="nav-link">دکمه های معکوس</a>
+							</li>
+							<li class="nav-item">
+								<a href="#tags" class="nav-link">برچسب های دکمه</a>
+							</li>
+							<li class="nav-item">
+								<a href="#outline" class="nav-link">دکمه های اوت لاین</a>
+							</li>
+							<li class="nav-item">
+								<a href="#sizes" class="nav-link">سایزهای دکمه</a>
+							</li>
+							<li class="nav-item">
+								<a href="#active" class="nav-link">وضعیت فعال</a>
+							</li>
+							<li class="nav-item">
+								<a href="#disabled" class="nav-link">وضعیت غیرفعال</a>
+							</li>
+							<li class="nav-item">
+								<a href="#with-icon" class="nav-link">دکمه های آیکون</a>
+							</li>
+							<li class="nav-item">
+								<a href="#with-icon-text" class="nav-link">به همراه متن و آیکون</a>
+							</li>
+							<li class="nav-item">
+								<a href="#social-icon" class="nav-link">آیکون شبکه اجتماعی</a>
+							</li>
+							<li class="nav-item">
+								<a href="#social-icon-text" class="nav-link">شبکه اجتماعی با آیکون و متن</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- partial:../../partials/_footer.html -->
+			<footer
+				class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+				<p class="text-muted mb-1 mb-md-0">کپی رایت © 2020، تمام حقوق محفوظ است</a>.
+				</p>
+			</footer>
+			<!-- partial -->
+
+		</div>
+	</div>
+
+	<!-- core:js -->
+	<script src="../../../assets/vendors/core/core.js"></script>
+	<!-- endinject -->
+
+	<!-- Plugin js for this page -->
+	<script src="../../../assets/vendors/prismjs/prism.js"></script>
+	<script src="../../../assets/vendors/clipboard/clipboard.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
+	<script src="../../../assets/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<!-- End custom js for this page -->
+
+  <script src="https://files-de.rtl-theme.com/jsdemos/21f532f8f7c2f65db1d73263889e5599f01b7444.js?pid=153371"></script>
+
+</body>
+
+</html>

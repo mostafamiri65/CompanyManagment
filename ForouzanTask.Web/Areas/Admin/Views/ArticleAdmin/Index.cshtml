@@ -1,0 +1,75 @@
+﻿@using ForouzanTask.Application.DTOs.Article;
+@using ForouzanTask.Application.Extensions;
+@using ForouzanTask.Application.Statics;
+@model IEnumerable<ArticleListDto>
+@{
+    ViewData["Title"] = "لیست مقاله ها";
+}
+@section ToperLink{
+    <a href="#">مقاله ها</a>
+}
+
+<div class="portlet-body">
+    <div class="mt-2 mb-2">
+        <a class="btn btn-warning" asp-area="Admin" asp-controller="ArticleAdmin" asp-action="CreateArticle">
+            ثبت مقاله جدید
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped" id="data-table">
+            <thead>
+                <tr>
+                    <th>تصویر اصلی</th>
+                    <th>عنوان مقاله</th>
+                    <th>تاریخ ایجاد</th>
+                    <th>کاربر ثبت کننده</th>
+                    <th>توضیحات مختصر</th>
+                    <td>عملیات</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    @foreach(var item in Model)
+                    { <tr>
+                        <td>
+                            <img class="img-thumbnail rounded img-fluid"
+                            src="@PathTools.ArticleImagePath@item.MainImageName"/>
+                            </td>
+                        <td>@item.Title </td>
+                        <td>@item.CreateDate.ToShamsi()</td>
+                        @if(item.CreatedBy!=null){
+                           <td> @item.CreatedBy.FullName</td>  
+                        }else{
+                            <td></td>
+                        }
+                          
+                        <td>@item.ShortDescription</td>
+                        <td><a asp-area="Admin" asp-controller="ArticleAdmin"
+                            asp-action="ShowDetails" asp-route-articleId="@item.Id" class="btn btn-info btn-round">مشاهده</a></td>
+                    </tr>
+                    }
+             
+            </tbody>
+        </table>
+    </div>
+  
+</div>
+
+
+@section PluginForThis {
+    <script src="/assets/plugins/data-table/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/pages/datatable.js"></script>
+
+}
+@section Script{
+    <script>
+        tableMain = $('#data-table').DataTable({
+            "columnDefs": [{
+                "targets": 4,
+                "orderable": false
+            }],
+            "pageLength": 25,
+            destroy: true
+        });
+    </script>
+}

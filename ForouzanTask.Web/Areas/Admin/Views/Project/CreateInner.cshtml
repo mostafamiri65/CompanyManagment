@@ -1,0 +1,91 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@using ForouzanTask.Application.DTOs.Project.Outer;
+@model CreateProjectInnerDto
+@{
+    ViewData["Title"] = "ثبت پروژه جدید";
+    List<OuterProjectTypeDto>? types = ViewData["Types"] as List<OuterProjectTypeDto>;
+}
+@section ToperLink{
+    <a asp-area="Admin" asp-controller="Project" asp-action="GetApprovedList">پروژه های در دست اقدام</a>
+}
+
+<div class="col-12 mt-md-2">
+    <form asp-area="Admin" asp-controller="Project" asp-action="CreateInner"
+          enctype="multipart/form-data" method="post">
+        <div class="row col-12">
+            <div class="col-8">
+                <div class="col-12 row mb-2">
+                    <div class="col-6 row">
+                        <div class="col-3"><label>نوع پروژه</label></div>
+                        <div class="col-9">
+                            <select asp-for="ProjectTypeId" required class="form-control form-select">
+                                <option value="">انتخاب کنید</option>
+                                @if (types != null)
+                                {
+                                    @foreach (var item in types)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6 row">
+                        <div class="col-3"><label>عنوان پروژه</label></div>
+                        <div class="col-9">
+                            <input type="text" asp-for="Title" class="form-control" maxlength="200" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 row mb-2">
+                    <div class="col-2"><label>توضیحات پروژه</label></div>
+                    <div class="col-10">
+                        <textarea asp-for="Description" class="form-control"
+                                  rows="5" maxlength="2000"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4 border border-secondary-subtle">
+                <div class="col-12 row mb-2">
+                    <div class="col-12 row">
+                        <div class="col-12"><label>فایل پیوستی</label></div>
+                        <div class="col-12">
+                            <input type="file" id="myDropify" asp-for="DocumentFile" />
+                        </div>
+                    </div>
+                    <div class="col-12 row">
+                        <div class="col-12"><label>توضیحات فایل پیوستی</label></div>
+                        <div class="col-12">
+                            <textarea type="text" asp-for="DocumentDescription"
+                                      class="form-control" maxlength="2000" rows="2">
+
+                            </textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 mt-2">
+            <div class="col-4 offset-4 d-grid gap-2">
+                <input type="submit" value="ثبت پروژه" class="btn btn-success" />
+            </div>
+        </div>
+    </form>
+</div>
+@section CssForThis {
+    <link rel="stylesheet" href="/assets/plugins/dropify/dist/dropify.min.css">
+}
+@section PluginForThis{
+    <script src="~/assets/plugins/dropify/dist/dropify.min.js"></script>
+
+}
+@section Script {
+    <script src="/assets/js/pages/dropify.js"></script>
+
+}

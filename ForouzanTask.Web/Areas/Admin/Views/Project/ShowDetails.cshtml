@@ -1,0 +1,179 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@using ForouzanTask.Application.Extensions;
+@model ProjectDetailsDto
+@{
+    ViewData["Title"] = "جزییات پروژه " + @Model.Title;
+}
+@section ToperLink{
+    <a asp-area="Admin" asp-controller="Project" asp-action="GetApprovedList">پروژه های در دست اقدام</a>
+}
+<div class="row col-12 mb-3">
+    <div class="col">
+        <h1>@Model.Title</h1>
+    </div>
+    <div class="col">
+        @if (Model.ProjectType != null)
+            @Model.ProjectType.Name
+
+
+
+
+
+
+
+        </div>
+        <div class="col row">
+            <div class="col float-end text-end"> <h6>تاریخ ایجاد :</h6></div>
+            <div class="col float-start">  @Model.CreateDate</div>
+        </div>
+    </div>
+    <div class="row col-12 mb-3 rounded bg-secondary">
+
+        <div class="col-2 d-grid  badge bg-primary text-wrap">
+            <a href="javascript:void(0);" onclick="AddFile('@Model.Id')"
+               class="btn btn-warning round">اضافه کردن فایل</a>
+        </div>
+
+        @if (Model.Documents != null)
+    {
+        @foreach (var item in Model.Documents)
+        {
+            <div class="col-2 ">
+                <a class="btn btn-info" asp-area="Admin" asp-controller="Project"
+                   data-bs-toggle="tooltip" data-bs-placement="top"
+                   data-bs-custom-class="custom-tooltip"
+                   data-bs-title="@item.DocumentDescription"
+                   asp-action="DownloadFile" asp-route-documentId="@item.Id">دانلود فایل</a>
+            </div>
+        }
+    }
+
+</div>
+<div class="row col-12 mb-3 rounded bg-light">
+    <div class="col-2 d-grid  badge bg-primary text-wrap mb-2">
+        <a href="javascript:void(0);" onclick="AddNote('@Model.Id')"
+           class="btn btn-warning round">
+            اضافه کردن یادداشت
+        </a>
+    </div>
+    <div class="row col-12 mb-3 bg-light">
+    @foreach (var item in Model.Notes)
+    {
+        <div class="col-6 border border-info ">
+            <p class="text-break">
+                @item.Description
+        </p></div>
+        }
+    </div>
+</div>
+<div class="col-12 row bg-success mb-3 rounded text-light">
+    @foreach(var item in Model.Requesters)
+    {
+        <div class="col-12 row">
+            <div class="col-4">درخواست دهنده : @item.RequesterName</div>
+            <div class="col-4 text-end">شماره تماس : </div>
+            <div class="col-4">@item.RequesterMobile</div>
+        </div>
+    }
+</div>
+<div class="col-12 row bg-info rounded mb-3">
+    <div class="col-2 d-grid  badge bg-primary text-wrap mb-2">
+        <a href="javascript:void(0);" onclick="AddRoles('@Model.Id')"
+           class="btn btn-warning round">
+            اضافه کردن نقش
+        </a>
+    </div>
+    <div class="col-12">
+    @foreach (var item in Model.Roles)
+    {
+        <div class="col-10">
+            <span class="fs-4">@item.Title</span> <span> قابلیت دیدن : @item.HasAccessForView.BoolToString()</span>
+            ، <span> قابلیت ویرایش : @item.HasAccessForEdit.BoolToString()</span>
+            ، <span> قابلیت حذف : @item.HasAccessForDelete.BoolToString()</span>
+        </div>
+
+    }
+    </div>
+</div>
+<div class="col-12 row bg-purple rounded mb-3">
+    <div class="col-2 d-grid  badge bg-primary text-wrap mb-2">
+        <a href="javascript:void(0);" onclick="AddTask('@Model.Id')"
+           class="btn btn-warning round">
+            اضافه کردن فعالیت
+        </a>
+    </div>
+    <div class="col-12">
+        @foreach (var item in Model.Tasks)
+        {
+            <p>
+                <a class="text-light" asp-area="Admin" asp-controller="Project"
+                   asp-action="ShowTaskDetails" asp-route-id="@item.Id">@item.TaskTitle</a>
+            </p>
+        }
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="bodyModal">
+                ...
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Script{
+    <script>
+        function AddFile(id) {
+            $.ajax({
+                url: "/Admin/Project/AddFile",
+                type: "Get",
+                data: { id: id }
+            }).done(function (result) {
+                $('#roleModal').modal('show');
+                $('#roleModalLabel').html(' اضافه کردن فایل ...');
+                $('#bodyModal').html(result);
+            });
+        }
+        function AddNote(id) {
+            $.ajax({
+                url: "/Admin/Project/AddNote",
+                type: "Get",
+                data: { id: id }
+            }).done(function (result) {
+                $('#roleModal').modal('show');
+                $('#roleModalLabel').html(' اضافه کردن یادداشت ...');
+                $('#bodyModal').html(result);
+            });
+        }
+        function AddRoles(id) {
+            $.ajax({
+                url: "/Admin/Project/AddRoles",
+                type: "Get",
+                data: { id: id }
+            }).done(function (result) {
+                $('#roleModal').modal('show');
+                $('#roleModalLabel').html(' اضافه کردن نقش ...');
+                $('#bodyModal').html(result);
+            });
+        }
+        function AddTask(id) {
+            $.ajax({
+                url: "/Admin/Project/AddTask",
+                type: "Get",
+                data: { id: id }
+            }).done(function (result) {
+                $('#roleModal').modal('show');
+                $('#roleModalLabel').html(' اضافه کردن فعالیت ...');
+                $('#bodyModal').html(result);
+            });
+        }
+    </script>
+}

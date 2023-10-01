@@ -1,0 +1,90 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@model AddTaskDto
+@{
+    Layout = null;
+    List<DefaultTitlesDto>? defaults = ViewData["Title"] as List<DefaultTitlesDto>;
+    List<UserListForTasksDto>? users = ViewData["Users"] as List<UserListForTasksDto>;
+    List<ProjectRolesListDto>? roles = ViewData["Roles"] as List<ProjectRolesListDto>;
+}
+<form asp-area="Admin" asp-controller="Project" asp-action="AddTask" method="post">
+    <input type="hidden" asp-for="ProjectId" value="@ViewBag.Id"/>
+    <div class="col-12 mb-2">
+        <div class="input-group">
+            <label>
+                <input type="checkbox" class="normal" asp-for="IsUsedDefaults" >
+                انتخاب از روی پایگاه داده
+            </label>
+        </div>
+    </div>
+    <div id="NotUsed">
+        <div class="col-12 mb-2 row">
+            <label>عنوان فعالیت</label>
+            <input asp-for="Title" class="form-control" maxlength="200" />
+        </div>
+        <div class="col-12 mb-2 row">
+            <label>شرح فعالیت</label>
+            <textarea asp-for="Description" class="form-control" maxlength="2000"></textarea>
+        </div>
+    </div>
+    <div id="Used" >
+        <div class="col-12 mb-2 row">
+            <label>عنوان فعالیت</label>
+            <select asp-for="ProjectTaskTitleId" class="form-select">
+                <option value="">انتخاب کنید</option>
+                @foreach (var item in defaults)
+                {
+                    <option value="@item.Id">@item.DefaultTitle : @item.DefaultDescription</option>
+                }
+            </select>
+
+        </div>
+
+    </div>
+    <div class="col-12 mb-2 row">
+        <label>کارمند انجام دهنده فعالیت</label>
+        <select asp-for="DoingUserId" class="form-select">
+            <option value="">انتخاب کنید</option>
+            @foreach (var item in users)
+            {
+                <option value="@item.Id">@item.FullName : @item.RoleName</option>
+            }
+        </select>
+    </div>
+    <div class="col-12 mb-2 row">
+        <label>نقش کارمند انجام دهنده فعالیت</label>
+        <select asp-for="RoleId" class="form-select">
+            <option value="">انتخاب کنید</option>
+            @foreach (var item in roles)
+            {
+                <option value="@item.Id">@item.Name </option>
+            }
+        </select>
+    </div>
+    <div class="col-12 mb-2 row">
+        <label>تعداد روز مورد نیاز برای انجام فعالیت</label>
+        <input asp-for="NumberOfDaysHasTime" class="form-control" type="number" />
+    </div>
+    <div class="col-12 mb-2 row">
+        <label>عنوان مقادیری که باید کارمند تکمیل کند (عناوین مختلف را با "-" از هم جدا کنید) .</label>
+        <input asp-for="RequestedTitles" class="form-control" type="text" />
+    </div>
+    <div class="col-12 mt-2 d-grid gap-2">
+        <input value="ثبت" class="btn btn-success" type="submit" />
+    </div>
+</form>
+
+            <script>
+    $(document).ready(function (){
+        $('#Used').hide();
+    });
+    $('input[id="IsUsedDefaults"]').change(function () {
+        if (this.checked) {
+           $('#Used').show();
+            $('#NotUsed').hide();
+            
+        }else{
+            $('#Used').hide();
+            $('#NotUsed').show();
+        }
+    });
+            </script>

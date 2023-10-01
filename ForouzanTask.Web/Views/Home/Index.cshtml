@@ -1,0 +1,47 @@
+﻿@using ForouzanTask.Application.DTOs.Article;
+@using ForouzanTask.Application.DTOs.User;
+@using ForouzanTask.Application.Extensions;
+@using ForouzanTask.Application.Statics;
+@{
+    ViewData["Title"] = "صفحه اصلی";
+    List<ArticleListDto>? articles = ViewData["Articles"] as List<ArticleListDto>;
+
+}
+<section>
+    <div class="row">
+
+        @foreach (var article in articles)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 article-col">
+                <div class="box-shadow">
+                    <div class="img-layer">
+                        <img class="" src="@PathTools.ArticleImagePath@article.MainImageName"
+                             data-src="@PathTools.ArticleImagePath@article.MainImageName">
+                        <a title="@article.Title"
+                           href="/blog/toplearn/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1-%D9%85%D8%AA%D9%84%D8%A8-%DA%86%DB%8C%D8%B3%D8%AA-%D9%88-%DA%86%D9%87-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C-%D8%AF%D8%A7%D8%B1%D8%AF">
+                            <span> <i>مشاهده کامل مقاله</i> </span>
+                        </a>
+                    </div>
+                    <h2>
+                        <a asp-controller="Article">
+                            @article.Title
+                        </a>
+                    </h2>
+                    @if (article.ShortDescription!=null){
+                    <p>
+
+                        @article.ShortDescription.ShowInMainPage()
+                        </p>
+                    }
+                    <div class="detail">
+                        <a title="@article.CreatedBy.FullName" href="#">
+                            <i class="lar la-user">
+
+                            </i>@article.CreatedBy.FullName
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

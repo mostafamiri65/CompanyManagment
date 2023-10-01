@@ -1,0 +1,126 @@
+﻿@using ForouzanTask.Application.DTOs.User.Role;
+@model CreateUserDto
+@{
+    ViewData["Title"] = "کاربر جدید";
+    List<RoleListDto>? roles = ViewData["Roles"] as List<RoleListDto>;
+}
+
+@section ToperLink{
+    <a href="/Admin/User">لیست کاربران</a>
+}
+
+
+<div class="alert-danger row col-12">
+    <div class="col">
+        <h6 id="h-FullName">نام و نام خانوادگی الزامی است</h6>
+        <h6 id="h-UserName">نام کاربری الزامی است</h6>
+
+    </div>
+    <div class="col">
+        <h6 id="h-Mobile">شماره موبایل الزامی است</h6>
+        <h6 id="h-pass">رمز عبور و تکرار آن الزامی است</h6>
+    </div>
+</div>
+<form asp-area="Admin" asp-controller="User" asp-action="CreateUser" class="form" method="post"
+    enctype="multipart/form-data">
+    <div class="row col-md-12">
+        <div class="col-md-9 row">
+            <div class="row col-md-12 mb-2">
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>نام و نام خانوادگی</label></div>
+                    <div class="col-md-9">
+                        <input type="text" asp-for="FullName" class="form-control" maxlength="300"
+                            title="نام و نام خانوادگی" placeholder="نام و نام خانوادگی" required
+                            oninvalid="this.setCustomValidity('وارد کردن نام و نام خانوادگی اجباری است')"
+                            oninput="this.setCustomValidity('')" onblur="ValidateFullName()" />
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>نام کاربری</label></div>
+                    <div class="col-md-9">
+                        <input type="text" asp-for="UserName" class="form-control" maxlength="100"
+                            placeholder="نام کاربری" title="نام کاربری" required
+                            oninvalid="this.setCustomValidity('وارد کردن نام کاربری اجباری است')"
+                            oninput="this.setCustomValidity('')" onblur="ValidateUserName()" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 row  mb-2">
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>شماره موبایل</label></div>
+                    <div class="col-md-9">
+                        <input type="text" asp-for="Mobile" class="form-control" maxlength="12" title="شماره موبایل"
+                            placeholder="شماره موبایل" required
+                            oninvalid="this.setCustomValidity('وارد کردن شماره موبایل اجباری است')"
+                            oninput="this.setCustomValidity('')" onblur="ValidateMobile()" />
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>نقش در شرکت</label></div>
+                    <div class="col-md-9">
+                        <select type="text" asp-for="RoleId" class="form-control form-select" title="نقش در شرکت"
+                            required oninvalid="this.setCustomValidity('وارد کردن نقش اجباری است')"
+                            oninput="this.setCustomValidity('')">
+                            <option>انتخاب کنید</option>
+                            @if (roles != null)
+                            {
+                                @foreach (var item in roles)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row col-md-12 mb-2">
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>رمز عبور</label></div>
+                    <div class="col-md-9">
+                        <input type="password" asp-for="Password" class="form-control" maxlength="100" title="رمز عبور"
+                            placeholder="رمز عبور" required
+                            oninvalid="this.setCustomValidity('وارد کردن رمز عبور اجباری است')"
+                            oninput="this.setCustomValidity('')" onblur="ValidatePass()" />
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div class="col-md-3"><label>تکرار رمز عبور</label></div>
+                    <div class="col-md-9">
+                        <input type="password" asp-for="RePassword" class="form-control" maxlength="100"
+                            title="تکرار رمز عبور" placeholder="تکرار رمز عبور" required
+                            oninvalid="this.setCustomValidity('وارد کردن رمز عبور اجباری است')"
+                            oninput="this.setCustomValidity('')" onblur="ValidatePass()" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-3 row">
+            <label>آواتار</label>
+            <div class="card-body">
+                <input type="file" id="myDropify" asp-for="Avatar" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mt-3">
+        <div class="col-md-4 offset-md-4 d-grid gap-2">
+            <input type="submit" class="btn btn-outline-success" value="ثبت" />
+        </div>
+    </div>
+</form>
+@section CssForThis {
+    <link href="~/assets/plugins/dropify/dist/dropify.min.css" rel="stylesheet" />
+
+}
+@section PluginForThis{
+    <script src="~/assets/plugins/dropify/dist/dropify.min.js"></script>
+
+}
+@section Script {
+    <script src="~/assets/js/pages/dropify.js"></script>
+
+    <script src="~/js/creatuser.js"></script>
+}

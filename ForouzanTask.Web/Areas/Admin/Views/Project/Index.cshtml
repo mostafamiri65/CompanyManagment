@@ -1,0 +1,59 @@
+﻿@using ForouzanTask.Application.DTOs.Project.Inner;
+@model List<ProjectListDto>
+@{
+    ViewData["Title"] = "لیست پروژه های دریافتی از سایت";
+}
+@section CssForThis{
+    <link href="/assets/plugins/data-table/DataTables-1.10.16/css/jquery.dataTables.css" rel="stylesheet">
+}
+@section ToperLink{
+    <a href="#">پروژه ها</a>
+}
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+         
+            <div class="card-body">
+                <h6 class="card-title">جدول پروژه ها</h6>
+                <p class="text-muted mb-3">
+                    لیست پروژه های درخواستی ثبت شده در سیستم از طریق سایت به شرح ذیل است
+                </p>
+            
+                <div class="table-responsive">
+                    <table id="dataTableExample" class="table">
+                        <thead>
+                            <tr>
+                                <th>عنوان پروژه</th>
+                                <th>نوع درخواست</th>
+                                <th>نام درخواست دهنده</th>
+                                <th>شماره درخواست دهنده</th>
+                                <th>دستورات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>@item.ProjectTypeName</td>
+                                    <td>@item.RequesterName</td>
+                                    <td>@item.RequesterMobile</td>
+                                    <td></td>
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section PluginForThis {
+    <script src="/assets/plugins/data-table/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/pages/datatable.js"></script>
+
+}
+
